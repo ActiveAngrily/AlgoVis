@@ -1,0 +1,23 @@
+.Visualize {
+  color: white;
+  font-size: 20px;
+  border: 5px solid green;
+  background-color: green;
+  border-radius: 35px;
+  margin-right: 5%;
+}
+.Visualize:hover {
+  
+  color: rgb(236, 236, 236);
+}
+.array-container {
+  display: flex;
+  align-items: stretch;
+  position: absolute;
+}
+
+.array-bar {
+  width: 1%;
+  display: inline-block;
+  margin: 0 0.5px;
+}
