@@ -1,22 +1,58 @@
-export default function bubbleSortAnimation(arr) {
-  var animarr = [];
-  function swap(a, b) {
-    var t = a;
-    a = b;
-    b = t;
+export function BubbleSortHelper(arr) {
+  var animations = [];
+  if (arr.length <= 1) {
+    return arr;
+  } else {
+    animations = bubbleSort(arr);
+    return animations;
   }
-
-  let i, j;
-  for(i = 0; i < arr.length; i++)
+}
+function swap(arr, i, j) {
+  let t = arr[i];
+  arr[i] = arr[j];
+  arr[j] = t;
+}
+function ArrayEqual(i,j){
+  if(i.length === j.length)
+  { 
+    return false;
+  }
+  
+  for(let k = 0; k < i.length; k++)
   {
-    for(j = 0; j < arr.length; j++)
+    if(i[k] != j[k])
     {
-      if(arr[j] > arr[i]) 
-      {
-        swap(arr[j],arr[i]);
-        animarr.push(arr);
-      }
+      return false;
     }
   }
-  return animarr;
+  return true;
+}
+
+function bubbleSort(inputArr) {
+  let len = inputArr.length;
+  var anim = [];
+  var sortedArray = inputArr;
+  sortedArray.sort();
+
+  
+
+  for (let k = 0; k < len; k++) { 
+  
+    if(ArrayEqual(inputArr,sortedArray)){
+      return anim;
+    }
+
+    for (let j = 0; j < len; j++) {
+          if (inputArr[j] > inputArr[j + 1]) {
+            
+              let tmp = inputArr[j];
+              inputArr[j] = inputArr[j + 1];
+              inputArr[j + 1] = tmp;
+              anim.push([j,j+1]);
+              anim.push([j,j+1]);
+          }        
+      }
+  }
+  console.log(anim);
+  return anim;
 }
